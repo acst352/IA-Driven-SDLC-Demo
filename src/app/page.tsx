@@ -3,11 +3,15 @@ import { Storefront } from "@/components/Storefront";
 import type { Product } from "@/types/product";
 
 export default async function Home() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const { data, error } = await supabase
     .from("products")
     .select("*")
     .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Supabase query error:", error.message);
+  }
 
   const products = (error ? [] : (data ?? [])) as Product[];
 
