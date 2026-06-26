@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   images: {
@@ -7,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "gxupfakzmzaxsbsfdtdj.supabase.co",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   poweredByHeader: false,
@@ -14,4 +19,8 @@ const nextConfig: NextConfig = {
   compress: true,
 };
 
-export default nextConfig;
+export default withSentryConfig(nextConfig, {
+  org: "icy-but-not-too-much",
+  project: "javascript-nextjs",
+  silent: true,
+});
