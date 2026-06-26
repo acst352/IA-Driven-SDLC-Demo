@@ -1,3 +1,9 @@
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+
 ## Linear MCP Usage
 
 **Default Strategy:** Usa solo `linear` MCP para todas las operaciones.
@@ -21,6 +27,6 @@
 3. Explica cómo habilitarlo: `composio.enabled = true` en config
 
 **Performance Benchmark:**
-- Linear solo: 19s, 34.5K tokens ⚡ (ÓPTIMO)
-- Composio solo: 45s, 33K tokens 🐌
-- Ambos juntos: 2m50s, 41.5K tokens 🐌🐌 (EVITAR)
+- Linear solo: 19s, 34.5K tokens (ÓPTIMO)
+- Composio solo: 45s, 33K tokens
+- Ambos juntos: 2m50s, 41.5K tokens (EVITAR)
