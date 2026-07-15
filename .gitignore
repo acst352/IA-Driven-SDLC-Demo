@@ -50,3 +50,13 @@ next-env.d.ts
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Playwright generated artifacts
+*.png
+*.log
+/trace/
+/playwright/.auth/
+
+# CI generated
+.sonarqube/
+.scannerwork/
