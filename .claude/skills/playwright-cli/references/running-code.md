@@ -39,6 +39,7 @@ playwright-cli run-code "async page => {
 # Clear geolocation override
 playwright-cli run-code "async page => {
   await page.context().clearPermissions();
+  await page.context().setGeolocation(null);
 }"
 ```
 
@@ -149,8 +150,9 @@ playwright-cli run-code "async page => {
   return await page.evaluate(() => navigator.clipboard.readText());
 }"
 
-# Write to clipboard
+# Write to clipboard (requires permission in secure context)
 playwright-cli run-code "async page => {
+  await page.context().grantPermissions(['clipboard-write']);
   await page.evaluate(text => navigator.clipboard.writeText(text), 'Hello clipboard!');
 }"
 ```

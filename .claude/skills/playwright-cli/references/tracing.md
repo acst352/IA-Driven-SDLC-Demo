@@ -19,34 +19,18 @@ playwright-cli tracing-stop
 
 ## Trace Output Files
 
-When you start tracing, Playwright creates a `traces/` directory with several files:
+Playwright writes the trace to `.playwright-cli/trace.zip`. Open it with:
 
-### `trace-{timestamp}.trace`
+```bash
+npx playwright show-trace .playwright-cli/trace.zip
+```
 
-**Action log** - The main trace file containing:
-- Every action performed (clicks, fills, navigations)
-- DOM snapshots before and after each action
-- Screenshots at each step
-- Timing information
-- Console messages
-- Source locations
+The trace includes:
 
-### `trace-{timestamp}.network`
-
-**Network log** - Complete network activity:
-- All HTTP requests and responses
-- Request headers and bodies
-- Response headers and bodies
-- Timing (DNS, connect, TLS, TTFB, download)
-- Resource sizes
-- Failed requests and errors
-
-### `resources/`
-
-**Resources directory** - Cached resources:
-- Images, fonts, stylesheets, scripts
-- Response bodies for replay
-- Assets needed to reconstruct page state
+- **Action log** — Every action performed (clicks, fills, navigations), DOM snapshots before and after each action, screenshots, and timing information.
+- **Network log** — All HTTP requests and responses, request/response headers and bodies, timing (DNS, connect, TLS, TTFB, download), resource sizes, and failed requests.
+- **Console messages** — All console.log, warn, error, and source locations.
+- **Resources** — Cached resources needed to reconstruct page state.
 
 ## What Traces Capture
 
@@ -129,8 +113,12 @@ Traces can consume significant disk space:
 
 ```bash
 # Remove traces older than 7 days
-find .playwright-cli/traces -mtime +7 -delete
+find .playwright-cli -name 'trace*.zip' -mtime +7 -delete
 ```
+
+### 3. Protect Sensitive Data
+
+Traces capture request/response headers and bodies, DOM snapshots, and screenshots — all of which may contain sensitive data. Always use synthetic credentials and payment data, redact artifacts before sharing, restrict retention and access, and exclude trace files from version control.
 
 ## Limitations
 
