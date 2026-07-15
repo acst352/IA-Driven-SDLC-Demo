@@ -35,6 +35,7 @@ test.describe("Práctica Playwright UI", () => {
   });
 
   test("TC3: FALLO a propósito — para ver debugging UI", async ({ page }) => {
+    test.fail();
     await page.goto("/");
     // Este test va a FALLAR. Click en el panel de UI para ver el snapshot
     // del momento exacto del fallo, el DOM, y la traza.
