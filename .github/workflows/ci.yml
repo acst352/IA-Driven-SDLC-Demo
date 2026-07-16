@@ -38,6 +38,9 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
+      - run: |
+          echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" >> .env.production
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY" >> .env.production
       - run: npm run build
 
   e2e:
@@ -96,6 +99,9 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
+      - run: |
+          echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" >> .env.production
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY" >> .env.production
       - run: npm run build
       - uses: SonarSource/sonarqube-scan-action@v5
         env:
