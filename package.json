@@ -15,7 +15,7 @@
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.108.2",
     "flowbite": "^4.0.2",
-    "next": "^15.5.19",
+    "next": "^16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -27,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^15.5.19",
+    "snyk": "^1.1306.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

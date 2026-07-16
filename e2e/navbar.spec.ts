@@ -6,7 +6,7 @@ test.describe("Navbar", () => {
 
     await expect(page.getByRole("link", { name: /mercado libre/i })).toBeVisible();
     await expect(page.getByPlaceholder("Buscar productos, marcas y más...")).toBeVisible();
-    await expect(page.getByRole("link", { name: "Creá tu cuenta" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Crear tu cuenta" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Ingresá" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Mis compras" })).toBeVisible();
   });
@@ -29,5 +29,14 @@ test.describe("Navbar", () => {
     await categoriesBtn.hover();
     await expect(page.getByRole("link", { name: "Vehículos" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Tecnología" })).toBeVisible();
+  });
+
+  test("fondo del navbar es el amarillo de Mercado Libre (#ffe600)", async ({ page }) => {
+    // #ffe600 = rgb(255, 230, 0)
+    // Verifica que el <header> tiene el color de fondo correcto.
+    // Si alguien cambia bg-[#ffe600] por otro color, este test falla.
+    await page.goto("/");
+    const header = page.locator("header").first();
+    await expect(header).toHaveCSS("background-color", "rgb(255, 230, 0)");
   });
 });

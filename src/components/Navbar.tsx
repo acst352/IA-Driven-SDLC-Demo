@@ -83,7 +83,7 @@ export function Navbar({ query, onQueryChange }: NavbarProps) {
         {/* Access links (simulados) */}
         <nav className="hidden shrink-0 items-center gap-3 text-xs text-gray-700 sm:flex">
           <a href="#" className="hover:text-[#3483fa]">
-            Creá tu cuenta
+            Crear tu cuenta
           </a>
           <span className="text-gray-400">|</span>
           <a href="#" className="hover:text-[#3483fa]">
