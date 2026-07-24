@@ -31,12 +31,12 @@ export function Navbar({ query, onQueryChange }: NavbarProps) {
   }
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-[#ffe600] shadow-sm">
+    <header className="sticky top-0 z-30 w-full bg-[#3483fa] shadow-sm">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-2 px-2 py-2 sm:gap-4 sm:px-4">
         {/* Logo */}
         <Link
           href="/"
-          className="shrink-0 text-2xl font-extrabold tracking-tight text-[#2d3277] sm:text-3xl"
+          className="shrink-0 text-2xl font-extrabold tracking-tight text-white sm:text-3xl"
           aria-label="Mercado Libre clone - Inicio"
         >
           Mercado Libre
