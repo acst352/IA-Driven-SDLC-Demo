@@ -31,12 +31,12 @@ test.describe("Navbar", () => {
     await expect(page.getByRole("link", { name: "Tecnología" })).toBeVisible();
   });
 
-  test("fondo del navbar es el amarillo de Mercado Libre (#ffe600)", async ({ page }) => {
-    // #ffe600 = rgb(255, 230, 0)
+  test("fondo del navbar es azul (#3483fa)", async ({ page }) => {
+    // #3483fa = rgb(52, 131, 250)
     // Verifica que el <header> tiene el color de fondo correcto.
-    // Si alguien cambia bg-[#ffe600] por otro color, este test falla.
+    // Si alguien cambia bg-[#3483fa] por otro color, este test falla.
     await page.goto("/");
     const header = page.locator("header").first();
-    await expect(header).toHaveCSS("background-color", "rgb(255, 230, 0)");
+    await expect(header).toHaveCSS("background-color", "rgb(52, 131, 250)");
   });
 });
